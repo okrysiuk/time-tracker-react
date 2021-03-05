@@ -1,0 +1,100 @@
+.main-container {
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: 100vh;
+}
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  /*border: 1px solid gray;*/
+  min-width: 320px;
+  width: 560px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.input-row {
+  padding-top: 40px;
+  display: flex;
+}
+.table-row {
+  padding-top: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+  cursor: pointer;
+}
+.play-new {
+  border-radius: 4px;
+  background-color: #4caf50;
+  padding: 15px 32px;
+  font-size: 20px;
+  margin: 4px 2px;
+}
+
+.delete {
+  border-radius: 4px;
+  background-color: #f44336;
+  padding: 10px 32px;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+.pause {
+  border-radius: 4px;
+  background-color: #fabc03;
+  padding: 10px 32px;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+.play {
+  border-radius: 4px;
+  background-color: #4caf50;
+  padding: 10px 32px;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+
+#trackers {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#trackers td, #trackers th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
+}
+
+#trackers tr:nth-child(even){background-color: #f2f2f2;}
+
+/*#trackers tr:hover {background-color: #ddd;}*/
+
+#trackers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
