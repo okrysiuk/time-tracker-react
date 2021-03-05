@@ -4,9 +4,16 @@ import * as FaIcons from "react-icons/fa";
 import firebase from "../../util/firebase.js";
 
 const Input = () => {
-  const [title, setTitle] = useState(`Track ${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()} `);
+  const [title, setTitle] = useState(
+    `Track ${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()} `
+  );
   const handleOnChange = (e) => {
     setTitle(e.target.value);
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      createTrack();
+    }
   };
   const createTrack = () => {
     const trackRef = firebase.database().ref("Track");
@@ -14,6 +21,7 @@ const Input = () => {
     const track = {
       title,
       fullTime: 0,
+      isActive: true,
     };
     trackRef.push(track);
   };
@@ -25,6 +33,7 @@ const Input = () => {
         name="lastname"
         placeholder="Enter tracker name"
         onChange={handleOnChange}
+        onKeyDown={handleKeyDown}
       ></input>
       <button className="play-new" onClick={createTrack}>
         <FaIcons.FaPlay />

@@ -14,8 +14,7 @@ const Trackers = () => {
       for (let id in tracks) {
         trackList.push({ id, ...tracks[id] });
       }
-      console.log(trackList);
-      setTrackList(trackList);
+      setTrackList(trackList.reverse());
     });
   }, []);
 

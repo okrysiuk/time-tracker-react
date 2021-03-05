@@ -86,7 +86,11 @@ button {
   padding: 8px;
 }
 
-#trackers tr:nth-child(even){background-color: #f2f2f2;}
+/*#trackers tr:nth-child(even){background-color: #f2f2f2;}*/
+
+.active {
+  background-color: #ccffce;
+}
 
 /*#trackers tr:hover {background-color: #ddd;}*/
 
