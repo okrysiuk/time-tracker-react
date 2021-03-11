@@ -1,20 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import "../app/app.css";
 import * as FaIcons from "react-icons/fa";
-import firebase from "../../util/firebase.js";
+//import firebase from "../../util/firebase.js";
+import { connect } from "react-redux";
 
-const Input = () => {
+import { changeTitle, addTrack } from "../../actions.js";
+
+const Input = ({ onChangeTitle, addTrack, newTitle, trackList }) => {
+  /*
   const [title, setTitle] = useState(
-    `Track ${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()} `
+    `Track ${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`
   );
+  
   const handleOnChange = (e) => {
     setTitle(e.target.value);
   };
+  */
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      createTrack();
+      addTrack();
     }
   };
+  /*
   const createTrack = () => {
     const trackRef = firebase.database().ref("Track");
     console.log(title);
@@ -25,6 +32,7 @@ const Input = () => {
     };
     trackRef.push(track);
   };
+  */
   return (
     <div className="input-row">
       <input
@@ -32,14 +40,26 @@ const Input = () => {
         id="tracker-name"
         name="lastname"
         placeholder="Enter tracker name"
-        onChange={handleOnChange}
+        onChange={onChangeTitle}
         onKeyDown={handleKeyDown}
       ></input>
-      <button className="play-new" onClick={createTrack}>
+      <button className="play-new" onClick={addTrack}>
         <FaIcons.FaPlay />
       </button>
     </div>
   );
 };
 
-export default Input;
+const mapStateToProps = ({ newTitle, trackList }) => {
+  return {
+    newTitle,
+    trackList,
+  };
+};
+
+const mapDispatchToProps = {
+  onChangeTitle: changeTitle,
+  addTrack,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Input);
